@@ -17,17 +17,17 @@ export const metadata: Metadata = {
   title: 'Le Capadocce — Kebab & restaurant turc à Nogent-le-Rotrou',
   description: 'Kebab, köfte, assiettes, tacos et douceurs turques au 3B rue Tochon à Nogent-le-Rotrou. Consultez la carte et les horaires du Capadocce.',
   openGraph: {
-    title: 'Le Capadocce — Les saveurs prennent de la hauteur',
+    title: 'Le Capadocce — Les saveurs s’élèvent',
     description: 'Kebab, köfte, assiettes et douceurs turques à Nogent-le-Rotrou.',
     type: 'website',
     locale: 'fr_FR',
-    images: [{ url: '/images/capadocce-landscape.png', width: 1536, height: 1024, alt: 'Illustration de marque du Capadocce' }],
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Le Capadocce — Les saveurs s’élèvent' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Le Capadocce — Les saveurs prennent de la hauteur',
+    title: 'Le Capadocce — Les saveurs s’élèvent',
     description: 'Kebab, köfte, assiettes et douceurs turques à Nogent-le-Rotrou.',
-    images: ['/images/capadocce-landscape.png'],
+    images: ['/og.png'],
   },
 };
 

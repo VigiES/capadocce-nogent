@@ -1,5 +1,4 @@
 import { ArrowDown, ArrowUpRight, MapPin, Phone } from 'lucide-react';
-import Image from 'next/image';
 import { hours, menu, restaurant, reviews, sauces } from './data';
 
 const schema = {
@@ -24,29 +23,46 @@ function ArrowLink({ href, children, className = '' }: { href: string; children:
   return <a className={`arrow-link ${className}`} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}><span>{children}</span><ArrowUpRight aria-hidden="true" size={18} strokeWidth={2.4} /></a>;
 }
 
+function BrandMark({ className = '' }: { className?: string }) {
+  return (
+    <svg className={`brand-mark ${className}`} viewBox="-56 -64 112 142" aria-hidden="true" focusable="false">
+      <path className="mark-shell" d="M0-58C34-58 53-36 50-6C48 17 35 32 15 45L9 55H-9L-15 45C-35 32-48 17-50-6C-53-36-34-58 0-58Z" />
+      <path className="mark-cut" d="M0-42C11-31 14-15 10 2C7 17 2 30 0 43C-2 30-7 17-10 2C-14-15-11-31 0-42Z" />
+      <rect className="mark-basket" x="-8" y="57" width="16" height="12" rx="1" />
+    </svg>
+  );
+}
+
+function Wordmark({ className = '' }: { className?: string }) {
+  return <span className={`wordmark ${className}`}><span className="sr-only">Capadocce</span><span aria-hidden="true">CAPAD</span><BrandMark className="wordmark-o" /><span aria-hidden="true">CCE</span></span>;
+}
+
 export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <a className="skip-link" href="#contenu">Aller au contenu</a>
       <header className="site-header">
-        <a className="brand-lockup" href="#accueil" aria-label="Le Capadocce, retour en haut"><span className="balloon-mark" aria-hidden="true" /><span>CAPADOCCE</span></a>
+        <a className="brand-lockup" href="#accueil" aria-label="Le Capadocce, retour en haut"><Wordmark /></a>
         <nav aria-label="Navigation principale"><a href="#carte">La carte</a><a href="#restaurant">Le restaurant</a><a href="#avis">Les avis</a><a href="#nous-trouver">Nous trouver</a></nav>
         <a className="call-button" href={restaurant.phoneHref}><Phone size={17} aria-hidden="true" /> Appeler</a>
       </header>
 
       <main id="contenu">
         <section className="hero" id="accueil">
-          <div className="hero-topline"><span>Kebab · Nogent-le-Rotrou</span><span>3B rue Tochon</span></div>
-          <h1 aria-label="Capadocce">CAPADOCCE</h1>
-          <div className="hero-stage">
+          <div className="hero-topline"><span>Kebab — Nogent-le-Rotrou</span><span>3B rue Tochon</span></div>
+          <div className="hero-canvas">
+            <h1><Wordmark /></h1>
             <div className="hero-copy">
               <p className="eyebrow">Restaurant turc · Nogent-le-Rotrou</p>
-              <h2>Les saveurs prennent de la hauteur.</h2>
+              <h2>Les saveurs s’élèvent.</h2>
               <p className="lead">Kebab, köfte, assiettes et douceurs turques. Rendez-vous rue Tochon.</p>
               <div className="hero-actions"><a className="primary-button" href="#carte">Voir la carte <ArrowDown size={18} aria-hidden="true" /></a><ArrowLink href="#nous-trouver">Nous trouver</ArrowLink></div>
             </div>
-            <figure className="hero-art"><Image src="/images/capadocce-landscape.png" alt="Illustration graphique d’une montgolfière au-dessus des cheminées de fée de Cappadoce" fill priority sizes="(max-width: 980px) 94vw, 62vw" /></figure>
+            <BrandMark className="hero-mark" />
+            <span className="hero-orb" aria-hidden="true" />
+            <span className="hero-rise" aria-hidden="true" />
+            <svg className="hero-line" viewBox="0 0 520 150" aria-hidden="true"><path d="M8 120C102 74 154 133 239 80C330 23 388 82 512 14" /></svg>
           </div>
         </section>
 
@@ -78,7 +94,7 @@ export default function Home() {
         </section>
 
         <section className="restaurant-section" id="restaurant">
-          <div className="restaurant-visual" aria-hidden="true"><Image src="/images/capadocce-landscape.png" alt="" fill sizes="(max-width: 980px) 100vw, 53vw" /><span>Rue<br />Tochon</span></div>
+          <div className="restaurant-visual" aria-hidden="true"><BrandMark className="restaurant-mark" /><span className="restaurant-rise" /><svg viewBox="0 0 620 180"><path d="M10 146C92 103 159 156 237 111C326 59 399 117 610 24" /></svg><strong>Sur place<br />ou à emporter.</strong></div>
           <div className="restaurant-copy"><p className="eyebrow">02 — Le restaurant</p><h2>Une halte chaude, au cœur de Nogent.</h2><p>Sur place ou à emporter, Le Capadocce réunit les classiques du kebab et des spécialités turques dans une adresse de quartier simple et directe.</p><div className="dessert-callout"><span>À garder pour la fin</span><h3>Revani, mousse au chocolat et cookie maison.</h3><p>Le revani est un dessert turc à la semoule imbibé de sirop.</p></div></div>
         </section>
 
@@ -94,7 +110,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer"><div className="footer-wordmark">CAPADOCCE</div><div><strong>{restaurant.name}</strong><span>{restaurant.address}</span></div><div><a href={restaurant.phoneHref}>{restaurant.phone}</a><a href="#carte">La carte</a><a href="#nous-trouver">Nous trouver</a></div></footer>
+      <footer className="site-footer"><div className="footer-wordmark"><Wordmark /></div><div><strong>{restaurant.name}</strong><span>{restaurant.address}</span></div><div><a href={restaurant.phoneHref}>{restaurant.phone}</a><a href="#carte">La carte</a><a href="#nous-trouver">Nous trouver</a></div></footer>
       <nav className="mobile-bar" aria-label="Actions rapides"><a href="#carte"><ArrowDown size={18} aria-hidden="true" /> La carte</a><a href={restaurant.phoneHref}><Phone size={18} aria-hidden="true" /> Appeler</a><a href={restaurant.mapsUrl} target="_blank" rel="noreferrer"><MapPin size={18} aria-hidden="true" /> Itinéraire</a></nav>
     </>
   );
