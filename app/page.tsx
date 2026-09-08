@@ -73,7 +73,7 @@ export default function Home() {
         </aside>
 
         <section className="menu-section" id="carte">
-          <header className="section-intro"><p className="eyebrow">01 — La carte</p><h2>Choisir, c’est déjà goûter.</h2><p>Les prix incluent les accompagnements indiqués. Toute la carte reste lisible, même sur petit écran.</p></header>
+          <header className="section-intro"><p className="eyebrow">01 — La carte</p><h2>Choisir, c’est déjà goûter.</h2><p>Les prix incluent les accompagnements indiqués.</p></header>
           <nav className="category-nav" aria-label="Catégories de la carte">{menu.map((section) => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}</nav>
           <div className="menu-grid">
             {menu.map((section, index) => (
@@ -99,8 +99,8 @@ export default function Home() {
         </section>
 
         <section className="reviews-section" id="avis">
-          <header className="section-intro light"><p className="eyebrow">03 — Les avis</p><h2>Vous le dites mieux que nous.</h2><p>Extraits d’avis Google fournis par le propriétaire du projet.</p></header>
-          <div className="reviews-grid">{reviews.map((review, index) => <blockquote key={review}><span aria-hidden="true">“</span><p>{review}</p><footer>Avis Google · Extrait {index + 1}</footer></blockquote>)}</div>
+          <header className="section-intro light"><p className="eyebrow">03 — Les avis</p><h2>Vous le dites mieux que nous.</h2></header>
+          <div className="reviews-grid">{reviews.map((review) => <blockquote key={review}><span aria-hidden="true">“</span><p>{review}</p><footer>Avis Google</footer></blockquote>)}</div>
           <ArrowLink href={restaurant.mapsUrl} className="reviews-link">Voir tous les avis Google</ArrowLink>
         </section>
 
