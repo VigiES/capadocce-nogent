@@ -77,6 +77,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 .menu-heading{align-self:start}
 .menu-heading>span{display:block;margin-bottom:.6rem;color:var(--orange);font-family:var(--font-display);font-size:1rem;font-weight:850}
 .menu-heading h3{margin:0;font-family:var(--font-display);font-size:clamp(2.5rem,4.8vw,5.7rem);font-weight:800;line-height:.86;letter-spacing:-.06em}
+.menu-block-6 .menu-heading h3{font-size:clamp(2.5rem,4vw,4.7rem)}
 .menu-heading p{max-width:34rem;margin:1.15rem 0 0;line-height:1.5}
 .menu-items{align-self:start;border-top:2px solid var(--aubergine)}
 .menu-item{display:grid;grid-template-columns:minmax(120px,1fr) minmax(240px,1.4fr);gap:1.5rem;padding:1rem 0;border-bottom:1px solid var(--line)}
