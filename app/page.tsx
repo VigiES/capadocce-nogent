@@ -50,7 +50,7 @@ export default function Home() {
 
       <main id="contenu">
         <section className="hero" id="accueil">
-          <div className="hero-topline"><span>Kebab — Nogent-le-Rotrou</span><span>3B rue Tochon</span></div>
+          <div className="hero-topline"><span className="hero-kicker">Kebab — Nogent-le-Rotrou</span><span>3B rue Tochon</span></div>
           <div className="hero-canvas">
             <h1><Wordmark /></h1>
             <div className="hero-copy">
