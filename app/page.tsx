@@ -72,8 +72,41 @@ export default function Home() {
           <ArrowLink href={restaurant.pressUrl} className="press-link">Lire l’article</ArrowLink>
         </aside>
 
-        <section className="menu-section" id="carte">
-          <header className="section-intro"><p className="eyebrow">01 — La carte</p><h2>Choisir, c’est déjà goûter.</h2><p>Les prix incluent les accompagnements indiqués.</p></header>
+        <section className="menu-section" id="carte" aria-label="La carte">
+          <div className="food-gallery" aria-label="La cuisine du Capadocce en quatre images">
+            <figure className="food-shot food-shot-broche">
+              <picture>
+                <source type="image/avif" srcSet="/images/food/broche-900.avif 900w, /images/food/broche-1600.avif 1600w" sizes="(max-width: 640px) 100vw, 70vw" />
+                <source type="image/webp" srcSet="/images/food/broche-900.webp 900w, /images/food/broche-1600.webp 1600w" sizes="(max-width: 640px) 100vw, 70vw" />
+                <img src="/images/food/broche-1600.webp" width="1800" height="2250" loading="lazy" decoding="async" alt="Broche de kebab dorée en cuisson devant le gril" />
+              </picture>
+              <figcaption><span>01</span> Broche</figcaption>
+            </figure>
+            <figure className="food-shot food-shot-geste">
+              <picture>
+                <source type="image/avif" srcSet="/images/food/geste-900.avif 900w, /images/food/geste-1600.avif 1600w" sizes="(max-width: 640px) 58vw, 28vw" />
+                <source type="image/webp" srcSet="/images/food/geste-900.webp 900w, /images/food/geste-1600.webp 1600w" sizes="(max-width: 640px) 58vw, 28vw" />
+                <img src="/images/food/geste-1600.webp" width="1800" height="1216" loading="lazy" decoding="async" alt="Mains préparant un sandwich dans un pain plat" />
+              </picture>
+              <figcaption><span>02</span> Le geste</figcaption>
+            </figure>
+            <figure className="food-shot food-shot-pain">
+              <picture>
+                <source type="image/avif" srcSet="/images/food/pain-900.avif 900w, /images/food/pain-1600.avif 1600w" sizes="(max-width: 640px) 42vw, 28vw" />
+                <source type="image/webp" srcSet="/images/food/pain-900.webp 900w, /images/food/pain-1600.webp 1600w" sizes="(max-width: 640px) 42vw, 28vw" />
+                <img src="/images/food/pain-1600.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Kebab généreusement garni présenté à deux mains" />
+              </picture>
+              <figcaption><span>03</span> Le kebab</figcaption>
+            </figure>
+            <figure className="food-shot food-shot-frites">
+              <picture>
+                <source type="image/avif" srcSet="/images/food/frites-900.avif 900w, /images/food/frites-1600.avif 1600w" sizes="(max-width: 640px) 100vw, 28vw" />
+                <source type="image/webp" srcSet="/images/food/frites-900.webp 900w, /images/food/frites-1600.webp 1600w" sizes="(max-width: 640px) 100vw, 28vw" />
+                <img src="/images/food/frites-1600.webp" width="1800" height="1473" loading="lazy" decoding="async" alt="Frites dorées et croustillantes servies bien chaudes" />
+              </picture>
+              <figcaption><span>04</span> Les frites</figcaption>
+            </figure>
+          </div>
           <nav className="category-nav" aria-label="Catégories de la carte">{menu.map((section) => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}</nav>
           <div className="menu-grid">
             {menu.map((section, index) => (
