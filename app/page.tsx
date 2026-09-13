@@ -57,7 +57,7 @@ export default function Home() {
               <p className="eyebrow">Restaurant turc · Nogent-le-Rotrou</p>
               <h2>Les saveurs s’élèvent.</h2>
               <p className="lead">Kebab, köfte, assiettes et douceurs turques. Rendez-vous rue Tochon.</p>
-              <div className="hero-actions"><a className="primary-button" href="#carte">Voir la carte <ArrowDown size={18} aria-hidden="true" /></a><ArrowLink href="#nous-trouver">Nous trouver</ArrowLink></div>
+              <div className="hero-actions"><a className="primary-button" href="#sandwichs">Voir la carte <ArrowDown size={18} aria-hidden="true" /></a><ArrowLink href="#nous-trouver">Nous trouver</ArrowLink></div>
             </div>
             <BrandMark className="hero-mark" />
             <span className="hero-orb" aria-hidden="true" />
@@ -80,7 +80,6 @@ export default function Home() {
                 <source type="image/webp" srcSet="/images/food/broche-900.webp 900w, /images/food/broche-1600.webp 1600w" sizes="(max-width: 640px) 100vw, 70vw" />
                 <img src="/images/food/broche-1600.webp" width="1800" height="2250" loading="lazy" decoding="async" alt="Broche de kebab dorée en cuisson devant le gril" />
               </picture>
-              <figcaption><span>01</span> Broche</figcaption>
             </figure>
             <figure className="food-shot food-shot-geste">
               <picture>
@@ -88,7 +87,6 @@ export default function Home() {
                 <source type="image/webp" srcSet="/images/food/geste-900.webp 900w, /images/food/geste-1600.webp 1600w" sizes="(max-width: 640px) 58vw, 28vw" />
                 <img src="/images/food/geste-1600.webp" width="1800" height="1216" loading="lazy" decoding="async" alt="Mains préparant un sandwich dans un pain plat" />
               </picture>
-              <figcaption><span>02</span> Le geste</figcaption>
             </figure>
             <figure className="food-shot food-shot-pain">
               <picture>
@@ -96,7 +94,6 @@ export default function Home() {
                 <source type="image/webp" srcSet="/images/food/pain-900.webp 900w, /images/food/pain-1600.webp 1600w" sizes="(max-width: 640px) 42vw, 28vw" />
                 <img src="/images/food/pain-1600.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Kebab généreusement garni présenté à deux mains" />
               </picture>
-              <figcaption><span>03</span> Le kebab</figcaption>
             </figure>
             <figure className="food-shot food-shot-frites">
               <picture>
@@ -104,14 +101,13 @@ export default function Home() {
                 <source type="image/webp" srcSet="/images/food/frites-900.webp 900w, /images/food/frites-1600.webp 1600w" sizes="(max-width: 640px) 100vw, 28vw" />
                 <img src="/images/food/frites-1600.webp" width="1800" height="1473" loading="lazy" decoding="async" alt="Frites dorées et croustillantes servies bien chaudes" />
               </picture>
-              <figcaption><span>04</span> Les frites</figcaption>
             </figure>
           </div>
           <nav className="category-nav" aria-label="Catégories de la carte">{menu.map((section) => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}</nav>
           <div className="menu-grid">
             {menu.map((section, index) => (
               <article className={`menu-block menu-block-${index + 1}`} id={section.id} key={section.id}>
-                <div className="menu-heading"><span>{String(index + 1).padStart(2, '0')}</span><h3>{section.title}</h3>{section.note && <p>{section.note}</p>}</div>
+                <div className="menu-heading"><h3>{section.title}</h3>{section.note && <p>{section.note}</p>}</div>
                 <div className="menu-items">
                   {section.items.map((item) => (
                     <div className="menu-item" key={`${section.id}-${item.name}`}>
